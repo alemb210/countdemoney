@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function addCoin(coinType) {
+            console.log(coinType);
+            coinType = coinType.parentElement.nodeName.id;
+            console.log(coinType);
+        }
+        function subtractCoin(coinType) {
+
+        }
+        function update() {
+
+        }
+    </script>
+</head>
+<body>
+    <div id="displayGrid"> 
+        <div id="Quarter" class="coin"> 
+            <div class="coinText">
+                Quarter Count: <br><br>
+                Quarter Value:
+            </div>
+            <button onclick="addCoin(this);">Add Quarter</button>
+            <button onclick="subtractCoin(this);">Subtract Quarter</button>        
+        </div>
+        <div id="Dime" class="coin"> 
+            <div class="coinText">
+                Quarter Count: <br><br>
+                Quarter Value:
+            </div>
+            <button onclick="addCoin(this);">Add Dime</button>
+            <button onclick="subtractCoin(this);">Subtract Dime</button>        
+        </div>
+        <div id="Penny" class="coin"> 
+            <div class="coinText">
+                Quarter Count: <br><br>
+                Quarter Value:
+            </div>
+            <button onclick="addCoin();">Add Penny</button>
+            <button onclick="subtractCoin();">Subtract Penny</button>        
+        </div>
+        <div id="Nickel" class="coin">
+            <div class="coinText">
+                Quarter Count: <br><br>
+                Quarter Value:
+            </div> 
+            <button onclick="addCoin();">Add Nickel</button>
+            <button onclick="subtractCoin();">Subtract Nickel</button>        
+        </div>
+    </div>
+</body>
+</html>

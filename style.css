@@ -1,0 +1,31 @@
+html, body, div 
+{
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid black;
+}
+
+#displayGrid 
+{
+    display: flex;
+    justify-content: space-around;
+    height: 200px;
+}
+
+.coin {
+    width: 100%;
+    align-items: center;
+}
+
+.coinText {
+    font-size: 24px;
+    text-align: center;
+    height: 50%;
+}
+
+button {
+    width: 40%;
+    height: 20%;
+    margin-top: 25%;
+    margin-left: 5%;
+}

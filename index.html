@@ -7,16 +7,80 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script>
+        let qCount = 0;
+        let qVal = 0;
+        let dCount = 0;
+        let dVal = 0;
+        let pCount = 0;
+        let pVal = 0;
+        let nCount = 0;
+        let nVal = 0;
         function addCoin(coinType) {
-            console.log(coinType);
-            coinType = coinType.parentElement.nodeName.id;
-            console.log(coinType);
+            coinType = coinType.parentElement.id;
+            if(coinType === "Quarter") {
+                qCount++;
+                qVal += 0.25;
+                qVal = (Math.round(qVal * 100) / 100);
+            }
+            if(coinType === "Dime") {
+                dCount++;
+                dVal += 0.10;
+                dVal = (Math.round(dVal * 100) / 100);
+            }
+            if(coinType === "Penny") {
+                pCount++;
+                pVal += 0.01;
+                pVal = (Math.round(pVal * 100) / 100);
+            }
+            if(coinType === "Nickel") {
+                nCount++;
+                nVal += 0.05;
+                nVal = (Math.round(nVal * 100) / 100);
+            }
+            update();
         }
         function subtractCoin(coinType) {
-
+            coinType = coinType.parentElement.id;
+            if(coinType === "Quarter") {
+                if(qCount > 0){
+                qCount--;
+                qVal -= 0.25;
+                qVal = (Math.round(qVal * 100) / 100);
+                }
+            }
+            if(coinType === "Dime") {
+                if(dCount > 0){
+                dCount--;
+                dVal -= 0.10;
+                dVal = (Math.round(dVal * 100) / 100);
+                }
+            }
+            if(coinType === "Penny") {
+                if(pCount > 0){
+                pCount--;
+                pVal -= 0.01;
+                pVal = (Math.round(pVal * 100) / 100);
+                }
+            }
+            if(coinType === "Nickel") {
+                if(nCount > 0){
+                nCount--;
+                nVal -= 0.05;
+                nVal = (Math.round(nVal * 100) / 100);
+                }
+            }
+            update();
         }
         function update() {
-
+            document.getElementById("qCount").innerHTML = qCount;
+            document.getElementById("qVal").innerHTML = qVal;
+            document.getElementById("dCount").innerHTML = dCount;
+            document.getElementById("dVal").innerHTML = dVal;
+            document.getElementById("pCount").innerHTML = pCount;
+            document.getElementById("pVal").innerHTML = pVal;
+            document.getElementById("nCount").innerHTML = nCount;
+            document.getElementById("nVal").innerHTML = nVal;
+            document.getElementById("totalVal").innerHTML = (Math.round((qVal + dVal + pVal + nVal) * 100) / 100);
         }
     </script>
 </head>
@@ -24,36 +88,39 @@
     <div id="displayGrid"> 
         <div id="Quarter" class="coin"> 
             <div class="coinText">
-                Quarter Count: <br><br>
-                Quarter Value:
+                Quarter Count: <span id="qCount">0</span> <br><br> 
+                Quarter Value: <span id="qVal">0.00</span>
             </div>
             <button onclick="addCoin(this);">Add Quarter</button>
             <button onclick="subtractCoin(this);">Subtract Quarter</button>        
         </div>
         <div id="Dime" class="coin"> 
             <div class="coinText">
-                Quarter Count: <br><br>
-                Quarter Value:
+                Dime Count: <span id="dCount">0</span> <br><br> 
+                Dime Value: <span id="dVal">0.00</span>
             </div>
             <button onclick="addCoin(this);">Add Dime</button>
             <button onclick="subtractCoin(this);">Subtract Dime</button>        
         </div>
         <div id="Penny" class="coin"> 
             <div class="coinText">
-                Quarter Count: <br><br>
-                Quarter Value:
+                Penny Count: <span id="pCount">0</span> <br><br>
+                Penny Value: <span id="pVal">0.00</span>
             </div>
-            <button onclick="addCoin();">Add Penny</button>
-            <button onclick="subtractCoin();">Subtract Penny</button>        
+            <button onclick="addCoin(this);">Add Penny</button>
+            <button onclick="subtractCoin(this);">Subtract Penny</button>        
         </div>
         <div id="Nickel" class="coin">
             <div class="coinText">
-                Quarter Count: <br><br>
-                Quarter Value:
+                Nickel Count: <span id="nCount">0</span> <br><br> 
+                Nickel Value: <span id="nVal">0.00</span>
             </div> 
-            <button onclick="addCoin();">Add Nickel</button>
-            <button onclick="subtractCoin();">Subtract Nickel</button>        
+            <button onclick="addCoin(this);">Add Nickel</button>
+            <button onclick="subtractCoin(this);">Subtract Nickel</button>        
         </div>
+    </div>
+    <div id="row">
+        <p> Total Value: <span id="totalVal">0.00</span> </p>
     </div>
 </body>
 </html>
